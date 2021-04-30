@@ -5,15 +5,12 @@ const endpoints = {
 };
 
 type ResponseRequest = {
-  data?: {
-    name: string;
-    last_name: string;
-    email: string;
-    age: string;
-    termsAndCond: boolean;
-    id: number;
-  };
-  ok: any;
+  name: string;
+  last_name: string;
+  email: string;
+  age: string;
+  termsAndCond: boolean;
+  id: number;
 };
 
 async function login(
@@ -22,14 +19,14 @@ async function login(
   email: string,
   age: string,
   termsAndCond: boolean,
-): Promise<GenericApiResponse> {
+): Promise<GenericApiResponse<ResponseRequest>> {
   try {
     const endpoint = {
       url: endpoints.login,
       param: { name, last_name, email, age, termsAndCond },
     };
 
-    let response: ResponseRequest = await request.post(
+    let response: GenericApiResponse<ResponseRequest> = await request.post(
       endpoint.url,
       endpoint.param,
     );

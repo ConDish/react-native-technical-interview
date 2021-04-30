@@ -13,11 +13,20 @@ import { setAppPartLoading, showErrorModal } from '../app';
 
 import { login, saveLoggedData } from './actions';
 
+type ResponseRequest = {
+  name: string;
+  last_name: string;
+  email: string;
+  age: string;
+  termsAndCond: boolean;
+  id: number;
+};
+
 function* loginSaga({ payload }: ReturnType<typeof login>) {
   yield put(setAppPartLoading({ name: 'login', isLoading: true }));
   try {
     const { name, last_name, email, age, termsAndCond } = payload;
-    const result: GenericApiResponse = yield call(
+    const result: GenericApiResponse<ResponseRequest> = yield call(
       api.login,
       name,
       last_name,

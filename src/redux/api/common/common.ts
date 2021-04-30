@@ -1,13 +1,6 @@
-export interface GenericApiResponse {
+export interface GenericApiResponse<T> {
   ok: boolean;
-  data?: {
-        name: string,
-        last_name: string,
-        email: string,
-        age: string,
-        termsAndCond: boolean,
-        id: number,
-    };
+  data?: T;
   message?: string;
 }
 
@@ -15,4 +8,3 @@ export interface GenericError {
   ok: boolean;
   message?: string;
 }
-
