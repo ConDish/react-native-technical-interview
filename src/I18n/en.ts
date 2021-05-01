@@ -26,4 +26,5 @@ export default {
   book_detail: 'Book Detail',
   button_wishlist: 'Add to wishlist',
   button_rent: 'Rent',
+  log_out: 'Log Out',
 };

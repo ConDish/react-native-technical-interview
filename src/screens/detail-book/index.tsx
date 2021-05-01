@@ -27,7 +27,6 @@ import {
 
 function DetailBookScreen({ route }) {
   const book: BookData = route.params.book;
-  console.log(book);
   return (
     <MainContainer title={I18n.t('book_detail').toUpperCase()}>
       <ScrollViewContainer>

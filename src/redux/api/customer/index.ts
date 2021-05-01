@@ -31,8 +31,6 @@ async function login(
       endpoint.param,
     );
 
-    console.log(response);
-
     if (response.ok && response.data) {
       return {
         ok: true,

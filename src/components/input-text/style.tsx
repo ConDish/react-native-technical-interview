@@ -7,8 +7,7 @@ type InputViewProps = {
   /** custom height */
   customHeight?: number;
 
-  /** si el input esta vacio*/
-  isEmpty: boolean;
+  isEmpty?: boolean;
 };
 
 export const Container = styled.View`
@@ -30,9 +29,13 @@ export const InputView = styled.View<InputViewProps>`
   flex-direction: row;
   border-width: 1px;
   border-color: ${(props) =>
-    !props.error ? props.theme.colors.borderColorInput : 'red'};
+    !props.error
+      ? props.theme.colors.borderColorInput
+      : props.theme.colors.redText};
   background-color: ${(props) =>
-    props.isEmpty ? props.theme.colors.bgColorInput : 'white'};
+    props.isEmpty
+      ? props.theme.colors.bgColorInput
+      : props.theme.colors.backgroundColor};
   padding-vertical: 11px;
   shadow-color: ${(props) =>
     props.isEmpty ? 'transparent' : props.theme.colors.shadowColorInput};

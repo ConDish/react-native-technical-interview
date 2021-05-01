@@ -40,9 +40,7 @@ function* loginSaga({ payload }: ReturnType<typeof login>) {
         put(setAppPartLoading({ name: 'login', isLoading: false })),
         put(
           showErrorModal({
-            message:
-              result.message ||
-              'Tu consulta no es clara ¡Por favor intenta nuevamente!',
+            message: result.message || 'Error',
           }),
         ),
       ]);
@@ -70,7 +68,7 @@ function* loginSaga({ payload }: ReturnType<typeof login>) {
 
     yield put(setAppPartLoading({ name: 'login', isLoading: false }));
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 

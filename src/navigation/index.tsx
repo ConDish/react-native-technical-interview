@@ -35,35 +35,55 @@ function TabNavigator() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={({ route }) => ({
-        tabBarIcon: () => {
+        tabBarIcon: ({ focused }) => {
           if (route.name === I18n.t('home_title')) {
             return (
               <IconTab
-                source={require('../../assets/ToolBar/ic_library.png')}
+                source={
+                  focused
+                    ? require('../../assets/ToolBar/ic_library_active.png')
+                    : require('../../assets/ToolBar/ic_library.png')
+                }
               />
             );
           } else if (route.name === I18n.t('wish_list')) {
             return (
               <IconTab
-                source={require('../../assets/ToolBar/ic_wishlist.png')}
+                source={
+                  focused
+                    ? require('../../assets/ToolBar/ic_wishlist_active.png')
+                    : require('../../assets/ToolBar/ic_wishlist.png')
+                }
               />
             );
           } else if (route.name === I18n.t('new_book')) {
             return (
               <IconTab
-                source={require('../../assets/ToolBar/ic_add_new.png')}
+                source={
+                  focused
+                    ? require('../../assets/ToolBar/ic_add_new_active.png')
+                    : require('../../assets/ToolBar/ic_add_new.png')
+                }
               />
             );
           } else if (route.name === I18n.t('rentals')) {
             return (
               <IconTab
-                source={require('../../assets/ToolBar/ic_myrentals.png')}
+                source={
+                  focused
+                    ? require('../../assets/ToolBar/ic_myrentals_active.png')
+                    : require('../../assets/ToolBar/ic_myrentals.png')
+                }
               />
             );
           } else if (route.name === I18n.t('settings')) {
             return (
               <IconTab
-                source={require('../../assets/ToolBar/ic_settings.png')}
+                source={
+                  focused
+                    ? require('../../assets/ToolBar/ic_settings_active.png')
+                    : require('../../assets/ToolBar/ic_settings.png')
+                }
               />
             );
           }

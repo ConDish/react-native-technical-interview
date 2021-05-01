@@ -26,4 +26,5 @@ export default {
   book_detail: 'Detalles del libro',
   button_wishlist: 'Agregar a la lista',
   button_rent: 'Alquilar',
+  log_out: 'Cerrar sesión',
 };

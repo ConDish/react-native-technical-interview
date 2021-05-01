@@ -6,7 +6,6 @@ function selectLanguage(state: RootState): Object {
 
 function selectAppPartLoading(state: RootState, partName: string): boolean {
   const appPart = state.app?.appParts?.find((item) => item.name === partName);
-  console.log('App', appPart?.isLoading);
 
   if (appPart) {
     return appPart.isLoading;

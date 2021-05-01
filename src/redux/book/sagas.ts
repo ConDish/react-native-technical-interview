@@ -12,7 +12,19 @@ function* getBooksSaga() {
     const result: GenericApiResponse<GetBooksResponse[]> = yield call(
       api.getBooks,
     );
-    yield put(saveBooksData(result.data || []));
+    if (!result.ok) {
+      yield all([
+        put(
+          showErrorModal({
+            message: result.message || 'Error',
+          }),
+        ),
+      ]);
+      return;
+    }
+    if (result.data) {
+      yield put(saveBooksData(result.data || []));
+    }
   } catch (error) {
     console.error(error);
   } finally {

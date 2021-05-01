@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
+
+import { SpinnerStyled } from '../../containers/app-container/style';
 import {
   CardImage,
   CardLeftWrapper,
@@ -16,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { getBooks } from '../../redux/book';
 import { useTypedSelector } from '../../hooks';
 import { BookData } from '../../redux/book/initial-state';
+import { selectAppPartLoading } from '../../redux/app';
 
 type FlatItemBook = {
   item: BookData;
@@ -24,6 +27,9 @@ type FlatItemBook = {
 function HomeScree({ navigation }): JSX.Element {
   const dispatch = useDispatch();
   const books = useTypedSelector((state) => state.book.books);
+  const isLoadingVisible = useTypedSelector((state) =>
+    selectAppPartLoading(state, 'getBooks'),
+  );
   const [filterBooks, setFilterBooks] = useState(books);
   useEffect(() => {
     dispatch(getBooks());
@@ -78,6 +84,10 @@ function HomeScree({ navigation }): JSX.Element {
           showsVerticalScrollIndicator={false}
         />
       </FlatContainer>
+      <SpinnerStyled
+        visible={isLoadingVisible}
+        textContent={I18n.t('loading')}
+      />
     </MainContainer>
   );
 }

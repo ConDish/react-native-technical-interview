@@ -15,8 +15,6 @@ async function getBooks(): Promise<GenericApiResponse<GetBooksResponse[]>> {
       endpoint.url,
     );
 
-    console.log(response);
-
     if (response.ok && response.data) {
       return {
         ok: true,
