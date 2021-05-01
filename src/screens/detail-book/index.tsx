@@ -58,7 +58,7 @@ function DetailBookScreen({ route }) {
               </ButtonWishList>
               <GradientButton
                 buttonText={I18n.t('button_rent').toUpperCase()}
-                submit={() => console.log('Into here')}
+                submit={() => console.log('Button Rent')}
               />
             </CardBody>
           </CardMainContainer>

@@ -1,3 +1,4 @@
+import FastImage from 'react-native-fast-image';
 import { styled } from '../../theme';
 import CheckBox from '@react-native-community/checkbox';
 
@@ -70,4 +71,19 @@ export const TermView = styled.View`
 
 export const TermLabel = styled.Text``;
 
-export const TermCheck = styled(CheckBox)``;
+export const TermCheck = styled(CheckBox)`
+  color: ${(props) => props.theme.colors.blueText};
+  border-color: ${(props) => props.theme.colors.blueText};
+`;
+
+export const ImageWrapper = styled.View`
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.blueText};
+`;
+
+export const ImageLogo = styled(FastImage)`
+  width: 150px;
+  height: 150px;
+`;

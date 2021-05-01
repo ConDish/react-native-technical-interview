@@ -22,8 +22,7 @@ function configureStore() {
     storage: AsyncStorage,
 
     transforms: [
-      createWhitelistFilter('customer'),
-      createWhitelistFilter('app'),
+      createWhitelistFilter('customer', ['user']),
       createBlacklistFilter('app', ['appParts', 'errorModal']),
     ],
   };

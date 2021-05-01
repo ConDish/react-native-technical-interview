@@ -8,6 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "json-server": "json-server --watch db.json -p 8000",
+    "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "pack-android-release": "cd android && ./gradlew clean && ./gradlew assembleRelease",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {

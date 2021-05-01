@@ -20,6 +20,8 @@ import {
   TermCheck,
   TermView,
   TermLabel,
+  ImageLogo,
+  ImageWrapper,
 } from './style';
 import { ThemeContext } from '../../theme';
 import useYupValidationResolver from '../../utils/use-yup-validation-resolver';
@@ -28,6 +30,7 @@ import GradientButton from '../../components/gradient-button';
 import { changeLanguage } from '../../redux/app';
 import { useTypedSelector } from '../../hooks';
 import { selectAppPartLoading } from '../../redux/app';
+import FastImage from 'react-native-fast-image';
 
 type FormValues = {
   email: string;
@@ -81,6 +84,12 @@ function LoginHome() {
   return (
     <SafeAreaContainer>
       <ScrollViewContainer>
+        <ImageWrapper>
+          <ImageLogo
+            source={require('../../../assets/General/wbooks_logo.png')}
+            resizeMode={FastImage.resizeMode.contain}
+          />
+        </ImageWrapper>
         <ButtonsWrapper>
           <ButtonLanguage
             onPress={() => {
@@ -147,6 +156,10 @@ function LoginHome() {
           <TermView>
             <TermCheck
               disabled={false}
+              tintColors={{
+                true: theme.colors.blueText,
+                false: theme.colors.labelColor,
+              }}
               value={toggleCheckBox}
               onValueChange={(newValue) => setToggleCheckBox(newValue)}
             />
