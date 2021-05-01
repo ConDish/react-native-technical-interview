@@ -7,7 +7,7 @@ import baseStyled, {
 const { width, height } = Dimensions.get('screen');
 
 const colors = {
-  backgroundColor: '#FBFBFD',
+  backgroundColor: '#ffffff',
   placeholderTextColor: '#2D2D2D4D',
   backgroundLogin: '#23A3DA',
   borderColorInput: '#f1f2f3',
@@ -30,7 +30,8 @@ const colors = {
   orangeText: '#EF812D',
   maxRedText: '#FF0000',
   maxBlueText: '#0083BF',
-  maxGreenText: '#00C288',
+  maxGreenText: '#35af64',
+  greenText: 'green',
   blueText: '#23A3DA',
   tabBarText: '#0080FE',
   minGraphic: '#017EFB',
@@ -65,8 +66,6 @@ const sizes = {
   screenHeight: height,
 };
 
-
-
 const theme = {
   colors,
   fontSize,
@@ -80,4 +79,3 @@ export type Theme = typeof theme;
 const styled = baseStyled as ReactNativeStyledInterface<Theme>;
 
 export { ThemeContext, styled, theme as default, css };
-

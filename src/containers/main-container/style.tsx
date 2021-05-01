@@ -16,18 +16,18 @@ export const SafeAreaContainer = styled.SafeAreaView`
 export const Header = styled(FastImage)`
   height: 100px;
   width: 100%;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.backgroundColor};
   align-items: center;
   flex-direction: row;
 `;
 
 export const Body = styled.View`
   flex: 1;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.backgroundColor};
 `;
 
 export const Title = styled.Text`
-  color: white;
+  color: ${(props) => props.theme.colors.backgroundColor};
   font-weight: bold;
   font-size: ${(props) => props.theme.fontSize.h3}px;
 `;
@@ -56,4 +56,5 @@ export const SearchWrapper = styled.View`
 
 export const InputSearch = styled.TextInput`
   flex: 1;
+  color: ${(props) => props.theme.colors.backgroundColor};
 `;

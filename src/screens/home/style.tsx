@@ -7,7 +7,7 @@ export const FlatContainer = styled.View`
   margin-top: 10px;
 `;
 
-export const CardMainContainer = styled.View`
+export const CardMainContainer = styled.TouchableOpacity`
   border-radius: ${(props) => props.theme.borderRadius.main}px;
   width: 100%;
   margin-vertical: 10px;
@@ -26,18 +26,22 @@ export const CardImage = styled(FastImage)`
 `;
 
 export const CardTitle = styled.Text`
-  font-size: ${(props) => props.theme.fontSize.h2}px;
-  font-weight: bold;
+  font-size: ${(props) => props.theme.fontSize.h3}px;
+  color: ${(props) => props.theme.colors.textColorTitle};
 `;
 
 export const CardSubTitle = styled.Text`
   font-size: ${(props) => props.theme.fontSize.h6}px;
+  color: ${(props) => props.theme.colors.labelColor};
 `;
 
 export const CardRightWrapper = styled.View`
-  flex: 1;
+  flex: 2;
+  justify-content: center;
 `;
 
 export const CardLeftWrapper = styled.View`
   flex: 1;
+  justify-content: center;
+  align-items: center;
 `;

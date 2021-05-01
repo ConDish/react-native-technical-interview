@@ -23,4 +23,7 @@ export default {
   new_book: 'Nuevo libro',
   rentals: 'Alquileres',
   settings: 'Configuracion',
+  book_detail: 'Detalles del libro',
+  button_wishlist: 'Agregar a la lista',
+  button_rent: 'Alquilar',
 };

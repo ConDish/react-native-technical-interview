@@ -46,7 +46,7 @@ function LoginHome() {
   const [ages, setAges] = useState([{ label: '0', value: '0' }]);
   const [age, setAge] = useState({ label: '18', value: '18' });
   useEffect(() => {
-    let addAges = [];
+    let addAges: { label: string; value: string }[] = [];
     for (let i = 18; i < 100; i++) {
       addAges.push({ label: i.toString(), value: i.toString() });
       setAges(addAges);
@@ -161,7 +161,10 @@ function LoginHome() {
           </ButtonView>
         </Container>
       </ScrollViewContainer>
-      <SpinnerStyled visible={isLoadingVisible} textContent={'Cargando...'} />
+      <SpinnerStyled
+        visible={isLoadingVisible}
+        textContent={I18n.t('loading')}
+      />
     </SafeAreaContainer>
   );
 }

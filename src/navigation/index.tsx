@@ -11,6 +11,7 @@ import I18n from '../I18n';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { isLogged as isLoggedSelector } from '../redux/customer/selectors';
 import { IconTab } from './style';
+import DetailBookScreen from '../screens/detail-book';
 
 const Stack = createStackNavigator();
 const AuthStack = createStackNavigator();
@@ -90,13 +91,22 @@ function AppNavigation() {
           }}
         />
       ) : (
-        <Stack.Screen
-          name="Home"
-          component={TabNavigator}
-          options={{
-            headerShown: false,
-          }}
-        />
+        <>
+          <Stack.Screen
+            name="Home"
+            component={TabNavigator}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="DetailBook"
+            component={DetailBookScreen}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </>
       )}
     </Stack.Navigator>
   );

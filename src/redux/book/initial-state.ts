@@ -7,6 +7,8 @@ export type BookData = {
   author?: string;
   title?: string;
   year?: string;
+  genre?: string;
+  publisher?: string;
   image_url?: string;
   comments?: Comments[];
 };

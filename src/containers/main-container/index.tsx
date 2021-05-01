@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import FastImage from 'react-native-fast-image';
 import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import * as Animatable from 'react-native-animatable';
@@ -15,6 +16,8 @@ import {
   InputSearch,
 } from './style';
 
+import { ThemeContext } from '../../theme';
+
 type MainContainerProps = {
   title?: string;
 
@@ -28,6 +31,9 @@ type MainContainerProps = {
 
 function MainContainer(props: MainContainerProps) {
   const [searchFlag, setSearchFlag] = useState(false);
+
+  const theme = useContext(ThemeContext);
+  const navigation = useNavigation();
   return (
     <Container>
       <Header
@@ -36,17 +42,19 @@ function MainContainer(props: MainContainerProps) {
         {!searchFlag ? (
           <>
             <Wrapper flex={0.5}>
-              <TouchIcon>
-                {props.leftIcon ? (
+              {props.leftIcon ? (
+                <TouchIcon>
                   <Icon
                     source={require('../../../assets/NavigationBar/ic_notifications.png')}
                   />
-                ) : (
+                </TouchIcon>
+              ) : (
+                <TouchIcon onPress={() => navigation.goBack()}>
                   <Icon
                     source={require('../../../assets/NavigationBar/ic_back.png')}
                   />
-                )}
-              </TouchIcon>
+                </TouchIcon>
+              )}
             </Wrapper>
             <Wrapper flex={2}>
               <Title>{props.title}</Title>
@@ -71,7 +79,7 @@ function MainContainer(props: MainContainerProps) {
             />
             <InputSearch
               placeholder={I18n.t('search_p')}
-              placeholderTextColor="white"
+              placeholderTextColor={theme.colors.backgroundColor}
               onChangeText={(value) =>
                 props.handleSearch && props.handleSearch(value)
               }
